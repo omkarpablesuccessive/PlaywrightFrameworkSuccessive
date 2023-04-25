@@ -15,7 +15,7 @@ pipeline {
             }
         stage('Generate Allure report') {
             steps {
-                 bat 'npx allure generate allure-results --clean'
+                bat 'npx allure generate allure-results --clean -o allure-report && allure open allure-report'
                 step([$class: 'AllureReportPublisher', results: [[path: 'allure-results']]])
                
                 // bat 'allure generate allure-results --clean -o allure-report && allure open allure-report'
