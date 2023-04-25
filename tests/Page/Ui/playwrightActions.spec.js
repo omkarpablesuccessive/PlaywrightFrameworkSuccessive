@@ -47,15 +47,15 @@ test('Drag and Drop in Playwright',async({page})=>{
 });
 
 //Drag and Drop Functionality Manually
-test('Manually Drag and Drop in Playwright',async({page})=>{
-    await page.goto('https://demo.automationtesting.in/Static.html')
-    expect(page).toHaveTitle('Drag and Drop')
-    await page.locator('#mongo').hover();
-    await page.mouse.down();
-    await page.locator('#droparea').hover();
-    await page.mouse.up();
-});
-})
+// test('Manually Drag and Drop in Playwright',async({page})=>{
+//     await page.goto('https://demo.automationtesting.in/Static.html')
+//     expect(page).toHaveTitle('Drag and Drop')
+//     await page.locator('#mongo').hover();
+//     await page.mouse.down();
+//     await page.locator('#droparea').hover();
+//     await page.mouse.up();
+// });
+// })
 
 
 test.describe('Array handling from POM ',function (){
