@@ -55,7 +55,7 @@ test('Drag and Drop in Playwright',async({page})=>{
 //     await page.locator('#droparea').hover();
 //     await page.mouse.up();
 // });
-// })
+})
 
 
 test.describe('Array handling from POM ',function (){
