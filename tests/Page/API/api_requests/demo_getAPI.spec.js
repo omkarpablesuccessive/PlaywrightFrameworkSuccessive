@@ -5,7 +5,7 @@ test.describe('API Testing with Playwright', ()=>{
 
 test('Get API test- Assert Responce status', async({request, baseURL})=> {
         let getresponse = await request.get(`${baseURL}/api/users/2`);
-        expect(getresponse.status()).toBe(204);
+        expect(getresponse.status()).toBe(200);
         let responseBody = JSON.parse(await getresponse.text())
    let userID = responseBody.data.id;
    let userMail = responseBody.data.email;
