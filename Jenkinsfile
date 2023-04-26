@@ -11,18 +11,19 @@ pipeline {
             steps {
                 bat 'rmdir /s /q allure-results && mkdir allure-results'
                 bat 'npx playwright test'
+                
                 bat 'npx allure generate allure-results --clean'
                 step([$class: 'AllureReportPublisher', results: [[path: 'allure-results']]])
             }
-            }
-        stage('Generate Allure report') {
-            steps {
-                // bat 'mkdir allure-results'
-                // bat 'npx allure generate allure-results --clean'
-                // step([$class: 'AllureReportPublisher', results: [[path: 'allure-results']]])
-                // bat 'allure generate allure-results --clean -o allure-report && allure open allure-report'    
-            }
-        }
+        //     }
+        // stage('Generate Allure report') {
+        //     steps {
+        //         // bat 'mkdir allure-results'
+        //         // bat 'npx allure generate allure-results --clean'
+        //         // step([$class: 'AllureReportPublisher', results: [[path: 'allure-results']]])
+        //         // bat 'allure generate allure-results --clean -o allure-report && allure open allure-report'    
+        //     }
+        // }
         
     }
 }
