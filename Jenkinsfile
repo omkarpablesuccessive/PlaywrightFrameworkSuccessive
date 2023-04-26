@@ -17,8 +17,16 @@ pipeline {
             steps {
                 // bat 'mkdir allure-results'
                 // bat 'npx allure generate allure-results --clean'
-                step([$class: 'AllureReportPublisher', results: [[path: 'allure-results']]])
-                bat 'allure generate allure-results --clean -o allure-report && allure open allure-report'    
+                // step([$class: 'AllureReportPublisher', results: [[path: 'allure-results']]])
+
+             allure([
+            includeProperties: false,
+            jdk: '',
+            properties: [],
+            reportBuildPolicy: 'ALWAYS',
+            results: [[path: 'allure-results']]
+        ])
+               // bat 'allure generate allure-results --clean -o allure-report && allure open allure-report'    
             }
         }
         
