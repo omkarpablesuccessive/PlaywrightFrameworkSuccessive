@@ -1,5 +1,5 @@
 import{test,expect} from '@playwright/test'
-const {Register} = require('../../locators/para_bank')
+const {locate} = require('../../locators/para_bank')
 const data = require('../../testData/para_bandData')
 const common = require('../../Common/common')
 const {config} =require('../../../config/envConfig')
@@ -11,7 +11,7 @@ test.describe('UI testing in Playwright',()=>{
         await page.goto(uiURL); 
         await page.getByText(locate.Register.reg_lnk).click();
         await page.waitForTimeout(3000);
-        await page.locator(Register.fName_txt).fill(data.reg.fName);
+        await page.locator(locate.Register.fName_txt).fill(data.reg.fName);
         await page.locator(locate.Register.lName_txt).fill(data.reg.Lname);
         await page.locator(locate.Register.addr_txt).fill(data.reg.Add);
         await page.locator(locate.Register.city_txt).fill(data.reg.City);
