@@ -11,11 +11,11 @@ pipeline {
             steps {
                 bat 'rmdir /s /q allure-results && mkdir allure-results'
                 bat 'npx playwright test'
-                
+
                 bat 'npx allure generate allure-results --clean'
                 step([$class: 'AllureReportPublisher', results: [[path: 'allure-results']]])
             }
-        //     }
+            }
         // stage('Generate Allure report') {
         //     steps {
         //         // bat 'mkdir allure-results'
