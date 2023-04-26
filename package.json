@@ -17,6 +17,7 @@
     "test:parallel": "npx playwright test --grep @Smoke --project chromium --headed",
     "test:seriel": "npx playwright test --grep @Smoke workers=1 --project chromium --headed",
     "test:record": "npx playwright codegen"
+    
   },
   "repository": {
     "type": "git",
