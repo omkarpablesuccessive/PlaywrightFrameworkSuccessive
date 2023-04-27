@@ -1,5 +1,5 @@
 import{test,expect} from '@playwright/test'
-const {locate} = require('../../locators/para_bank')
+const locate = require('../../locators/para_bank')
 const data = require('../../testData/para_bandData')
 const common = require('../../Common/common')
 const {config} =require('../../../config/envConfig')
