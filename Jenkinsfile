@@ -35,7 +35,7 @@ pipeline {
                 body: """<p>Pipeline Status: ${currentBuild.currentResult}</p>
                         <p>View the job: ${env.BUILD_URL}</p>""",
                 to: "nikhil.thakare@successive.tech",
-                from: "onkar.jadhao@successive.tech",
+                from: "omkar.pabale@successive.tech",
                 replyTo: "omkar.pabale@successive.tech",
                 mimeType: 'text/html'
             )
