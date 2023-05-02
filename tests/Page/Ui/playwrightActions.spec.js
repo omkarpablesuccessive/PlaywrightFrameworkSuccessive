@@ -22,18 +22,16 @@ test('Prompt Handle in Playwright',async({page})=>{          //Issue
          expect(dialog.message().toContain('Please enter your name'));
          await dialog.accept('Testing Prompt')
          await page.click("#promtButton")
-         let messgae = await page.locator('#promptResult').innerText();
-         console.log(messgae);
+         let message = await page.locator('#promptResult').innerText();
          await expect(page.locator('#promptResult')).toHaveText('You entered Testing Prompt')
     })
 });
 })
-
 test.describe('file upload in playwright',function(){
 //File Upload Functionality
 test('File upload in Playwright',async({page})=>{
     await page.goto('https://kitchen.applitools.com/ingredients/file-picker')
-  await page.setInputFiles('#photo-upload','Fixtures/images/Misal.jpg');
+  await page.setInputFiles('#photo-upload','Fixtures/images/newadmin_123.jpg');
 });
 })
 test.describe('Drag and Drop functionality',function(){
@@ -52,20 +50,19 @@ test('Manually Drag and Drop in Playwright',async({page})=>{
     expect(page).toHaveTitle('Drag and Drop')
     await page.locator('#mongo').hover();
     await page.mouse.down();
+    await page.waitForTimeout(3000);
     await page.locator('#droparea').hover();
     await page.mouse.up();
 });
 })
-
-
 test.describe('Array handling from POM ',function (){
     //Get list of Elements from periodic table
     test('Get list of element in Array',async({page})=>{
         await page.goto('https://pubchem.ncbi.nlm.nih.gov/periodic-table/')
         expect(page).toHaveTitle("Periodic Table of Elements - PubChem");
         let elements = await page.locator('div[data-tooltip="Name"]').allInnerTexts();
-        common.testVariables.listOfElements=elements;
-    });
+        common.testVariables.listOfElements=elements;    
+    }); 
 })
 
 
