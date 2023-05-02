@@ -1,8 +1,14 @@
+import{test} from '@playwright/test'
+let randomString=''
 const testVariables= {
     loginSuccessfulMessage : '',
     loginErrorMessage:'',
     nativeTitle:'',
-    listOfElements:[]
+    listOfElements:[],
+    userName:''
     
 }
-module.exports={testVariables}
+module.exports={
+    testVariables,
+    randomString
+}

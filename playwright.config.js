@@ -62,7 +62,7 @@ module.exports = defineConfig({
       /*
       (chrome browser conf)
       channel='chrome', 
-
+npx play
       (Browser mode)
       headless='false',
 

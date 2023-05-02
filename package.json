@@ -4,7 +4,7 @@
   "main": "in",
   "scripts": {
     "test": "cucumber-js --require cucumber.js",
-    "test:e2e": "npx playwright test ",
+    "test:e2e": "npx playwright test",
     "test:spec": "npx playwright test playwrightActions.spec.js --project chromium --headed --workers=1 ",
     "test:ui": "npx playwright test para_bank.spec.js --project chromium --headed --workers=1",
     "test:api": "npx playwright test demo_getAPI.spec.js --project chromium --headed --workers=1",

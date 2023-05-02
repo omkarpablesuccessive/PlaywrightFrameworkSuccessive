@@ -1,13 +1,24 @@
 import{test,expect} from '@playwright/test'
-const {locate} = require('../../locators/para_bank')
+const locate = require('../../locators/para_bank')
 const data = require('../../testData/para_bandData')
 const common = require('../../Common/common')
 const {config} =require('../../../config/envConfig')
 const{uiURL}=config[config.env].web 
 
+
 test.describe('UI testing in Playwright',()=>{
     test('Register into Para Bank', async({page})=>{
        // await page.goto('https://parabank.parasoft.com/');
+
+       const randomString =await test.step('Create invitation link', async () => {
+        let result = '';
+        let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789(_@#%&*$){}-[]==:';
+        let charactersLength = characters.length;
+        for (let i = 0; i < 5; i++) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+      })
         await page.goto(uiURL); 
         await page.getByText(locate.Register.reg_lnk).click();
         await page.waitForTimeout(3000);
@@ -19,7 +30,7 @@ test.describe('UI testing in Playwright',()=>{
         await page.locator(locate.Register.zip_txt).fill(data.reg.zip);
         await page.locator(locate.Register.phone_txt).fill(data.reg.phone);
         await page.locator(locate.Register.ssn_txt).fill(data.reg.ssn);
-        await page.locator(locate.Register.usd_txt).fill(data.reg.username);
+        await page.locator(locate.Register.usd_txt).fill(data.reg.username+randomString);
         await page.locator(locate.Register.pass_txt).fill(data.reg.password);
         await page.locator(locate.Register.confPass_txt).fill(data.reg.confPassword);
         await page.locator(locate.Register.reg_btn).click();
@@ -51,7 +62,6 @@ test.describe('UI testing in Playwright',()=>{
         await page.click(locate.login.login_btn);
         await page.waitForTimeout(3000);
         let ErrorMsg = await page.locator('//h1//following-sibling::p').innerText();
-        console.log(ErrorMsg);
         expect(ErrorMsg).toBe('The username and password could not be verified.');
     })
 })
