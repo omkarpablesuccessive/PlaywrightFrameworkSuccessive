@@ -49,7 +49,6 @@ test.describe('UI testing in Playwright',()=>{
         await page.click(locate.login.login_btn);
         await page.waitForTimeout(3000);
         let accTitle = await page.locator('h1[class=title]').innerText();
-        console.log(accTitle);
         expect(accTitle).toBe('Accounts Overview')
     })
     
