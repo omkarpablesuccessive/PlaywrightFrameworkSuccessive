@@ -62,5 +62,6 @@ test.describe('UI testing in Playwright',()=>{
         await page.waitForTimeout(3000);
         let ErrorMsg = await page.locator('//h1//following-sibling::p').innerText();
         expect(ErrorMsg).toBe('The username and password could not be verified.');
+        
     })
 })
