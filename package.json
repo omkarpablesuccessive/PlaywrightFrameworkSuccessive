@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "in",
   "scripts": {
-    "test": "cucumber-js --require cucumber.js",
     "test:e2e": "npx playwright test",
     "test:spec": "npx playwright test playwrightActions.spec.js --project chromium --headed --workers=1 ",
     "test:ui": "npx playwright test para_bank.spec.js --project chromium --headed --workers=1",
@@ -12,10 +11,6 @@
     "posttest:e2e": "allure generate allure-results --clean -o allure-report && allure open allure-report",
     "pretest:e2e": "rm -rf allure-results && mkdir allure-results",
     "test:report": "npx playwright show-report",
-    "test:bdd": "cucumber-js --require cucumber.conf.js --require tests/src/ui_test/step_definition/testDemo_step.js --format @cucumber/pretty-formatter",
-    "test:single": "npx playwright test -g 'Title' --project chromium --headed",
-    "test:parallel": "npx playwright test --grep @Smoke --project chromium --headed",
-    "test:seriel": "npx playwright test --grep @Smoke workers=1 --project chromium --headed",
     "test:record": "npx playwright codegen"
     
   },
