@@ -20,5 +20,5 @@ pipeline {
             step([$class: 'AllureReportPublisher', results: [[path: 'allure-results']]])
            }
     }
-    }
+    
 }
