@@ -9,5 +9,5 @@ const putData={
         job: "zion resident"
 }
 module.exports={
-    putData
+    putData, data
 }
