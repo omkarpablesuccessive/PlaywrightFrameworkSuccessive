@@ -13,7 +13,7 @@ pipeline {
                 bat 'rmdir /s /q allure-results && mkdir allure-results'
                 bat 'npx playwright test'
             }
-    }
+        }}
     post{
         always{
             bat 'npx allure generate allure-results --clean'
